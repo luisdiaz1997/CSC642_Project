@@ -1,0 +1,8 @@
+name: UI
+channels:
+  - defaults
+dependencies:
+  - flask
+  - gunicorn
+  - python=3.7
+prefix: $HOME/miniconda3/envs/UI

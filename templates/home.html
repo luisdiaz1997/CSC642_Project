@@ -7,26 +7,33 @@ Foodridise
   {% include 'navbar.html' %}
   <div class="container">
     <div class="row">
-      <div class="col-8 orange">
+      <div class="col-8 test">
         Col 1
       </div>
-      <div class="col-4 orange">
+      <div class="col-4 test">
         Col 2
       </div>
     </div>
     <div class="row">
-      <div class="col-8 orange">
+      <div class="col-8 test">
         {% for i in range(3) %}
           <div class="row">
             {% for j in range(3) %}
-              <div class="col-4 orange">
-                Content
+              <div class="col-4 test">
+
+                <div class="card bg-dark text-white">
+                  <img src="{{ data[i*3+j]['src']}}" class="card-img" alt="...">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title">{{ data[i*3+j]['name']}}</h5>
+                  </div>
+                </div>
+
               </div>
             {% endfor %}
           </div>
         {% endfor %}
       </div>
-      <div class="col-4 orange">
+      <div class="col-4 test">
         Col 2
       </div>
     </div>
@@ -35,8 +42,8 @@ Foodridise
 
 {% block style %}
   <style type="text/css">
-    .orange{
-      background: orange;
+    .test{
+      /* background: orange; */
       border: 1px solid black;
     }
   </style>

@@ -5,5 +5,39 @@ Foodridise
 
 {% block content %}
   {% include 'navbar.html' %}
-  <h1>Welcome to Foodridise</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 orange">
+        Col 1
+      </div>
+      <div class="col-4 orange">
+        Col 2
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 orange">
+        {% for i in range(3) %}
+          <div class="row">
+            {% for j in range(3) %}
+              <div class="col-4 orange">
+                Content
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="col-4 orange">
+        Col 2
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block style %}
+  <style type="text/css">
+    .orange{
+      background: orange;
+      border: 1px solid black;
+    }
+  </style>
 {% endblock %}

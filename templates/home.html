@@ -16,22 +16,16 @@ Foodridise
     </div>
     <div class="row">
       <div class="col-8 test">
-        {% for i in range(3) %}
-          <div class="row">
-            {% for j in range(3) %}
-              <div class="col-4 test">
-
+        <div class="card-columns">
+            {%for element in data%}
                 <div class="card bg-dark text-white">
-                  <img src="{{ data[i*3+j]['src']}}" class="card-img" alt="...">
+                  <img src="{{ element['src']}}" class="card-img" alt="...">
                   <div class="card-img-overlay">
-                    <h5 class="card-title">{{ data[i*3+j]['name']}}</h5>
+                    <h5 class="card-title">{{ element['name']}}</h5>
                   </div>
                 </div>
-
-              </div>
             {% endfor %}
-          </div>
-        {% endfor %}
+        </div>
       </div>
       <div class="col-4 test">
         Col 2

@@ -1,0 +1,30 @@
+.navbar
+{
+  background-color: #EB8921;
+  font-family: 'Roboto', sans-serif;
+}
+.navbar h1{
+  -webkit-text-fill-color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+.navbar button, .navbar input{
+
+  border-radius: 100px;
+}
+.navbar button{
+  -webkit-text-fill-color: #EB8921;
+}
+
+/* For sign up login */
+.sign
+{
+  margin-right: 4%;
+  min-width: 90px;
+}
+.navbar input[type=search]
+{
+  width:400px;
+  font-style: italic;
+}

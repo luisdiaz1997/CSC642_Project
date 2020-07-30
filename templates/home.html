@@ -1,3 +1,4 @@
+{% import 'card.html' as card %}
 {% extends 'template.html' %}
 {% block title %}
 Foodridise
@@ -5,16 +6,13 @@ Foodridise
 
 {% block content %}
   {% include 'navbar.html' %}
+
+  {% block navbar_name %}{% endblock %}
   <div class="container">
     <div class="row custom_row">
       <div class="col-8">
-
-          <div class="card bg-dark text-white ">
-            <img src="{{ data[0]['src']}}" class="card-img big-image" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title">{{ data[0]['name']}}</h5>
-            </div>
-          </div>
+        {{ card.input(name=data[0]['name'],
+        src=data[0]['src'], style="big-image") }}
       </div>
       <div class="col-4">
         Col 2
@@ -23,13 +21,9 @@ Foodridise
     <div class="row custom_row">
       <div class="col-8">
         <div class="card-columns">
-            {%for element in data%}
-                <div class="card bg-dark text-white">
-                  <img src="{{ element['src']}}" class="card-img small-image" alt="...">
-                  <div class="card-img-overlay">
-                    <h5 class="card-title">{{ element['name']}}</h5>
-                  </div>
-                </div>
+            {%for element in data[1:]%}
+              {{ card.input(name=element['name'],
+              src=element['src'], style="small-image") }}
             {% endfor %}
         </div>
       </div>

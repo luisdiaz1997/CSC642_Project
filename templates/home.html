@@ -11,8 +11,9 @@ Foodridise
   <div class="container">
     <div class="row custom_row">
       <div class="col-8">
-        {{ card.input(name=data[0]['name'],
-        src=data[0]['src'], img_style="card-image") }}
+        {{ card.open_card(name=data[0]['name'],
+        src=data[0]['src'], img_style="card-image", size='big')}}
+        {{ card.close_card() }}
       </div>
       <div class="col-4">
         Col 2
@@ -22,8 +23,8 @@ Foodridise
       <div class="col-8">
         <div class="card-columns">
           {%for element in data[1:]%}
-            {{ card.input(name=element['name'],
-            src=element['src'], img_style="card-image") }}
+            {{ card.open_card(name=element['name'],src=element['src'], img_style="card-image") }}
+            {{ card.close_card() }}
           {% endfor %}
         </div>
       </div>

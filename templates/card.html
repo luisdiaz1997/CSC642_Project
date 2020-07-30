@@ -1,8 +1,17 @@
-{% macro input(name, src='', img_style='', card_style='') -%}
-  <div class="card bg-dark text-white {{ card_style}}">
+{% macro open_card(name, src='', img_style='', card_style='', size='small') -%}
+  <div class="card bg-dark text-white {{card_style}}">
     <img src="{{ src }}" class="card-img {{ img_style }}" alt="...">
     <div class="card-img-overlay">
-      <h5 class="card-title">{{ name }}</h5>
+      {%if size == 'small'%}
+        <h5 class="card-title">{{ name }}</h5>
+      {% endif %}
+      {%if size == 'big'%}
+        <h3 class="card-title">{{ name }}</h3>
+      {% endif %}
+
+{%- endmacro %}
+
+{% macro close_card() -%}
     </div>
   </div>
 {%- endmacro %}

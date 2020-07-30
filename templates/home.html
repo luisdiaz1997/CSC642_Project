@@ -12,7 +12,7 @@ Foodridise
     <div class="row custom_row">
       <div class="col-8">
         {{ card.input(name=data[0]['name'],
-        src=data[0]['src'], style="big-image") }}
+        src=data[0]['src'], img_style="card-image") }}
       </div>
       <div class="col-4">
         Col 2
@@ -21,10 +21,10 @@ Foodridise
     <div class="row custom_row">
       <div class="col-8">
         <div class="card-columns">
-            {%for element in data[1:]%}
-              {{ card.input(name=element['name'],
-              src=element['src'], style="small-image") }}
-            {% endfor %}
+          {%for element in data[1:]%}
+            {{ card.input(name=element['name'],
+            src=element['src'], img_style="card-image") }}
+          {% endfor %}
         </div>
       </div>
       <div class="col-4">
@@ -37,22 +37,13 @@ Foodridise
 {% block style %}
   <style type="text/css">
     .custom_row{
-      /* background: orange; */
-      /* border: 1px solid black; */
       margin-top: 2%
     }
-    .small-image {
-      /* position: relative; */
-      object-fit: cover;
-      object-position: center; /* Center the image within the element */
-      height: 140px;
-      width: 270px;
-    }
-    .big-image{
+    .card-image{
         object-fit: cover;
-        object-position: center; /* Center the image within the element */
+        object-position: center;
         height: 150px;
-        width: auto;
+        width: 100%;
     }
   </style>
 {% endblock %}

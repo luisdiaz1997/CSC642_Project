@@ -1,0 +1,8 @@
+{% macro input(name, src='', img_style='', card_style='') -%}
+  <div class="card bg-dark text-white {{ card_style}}">
+    <img src="{{ src }}" class="card-img {{ img_style }}" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{ name }}</h5>
+    </div>
+  </div>
+{%- endmacro %}

@@ -19,7 +19,7 @@ Foodridise
         <div class="card-columns">
             {%for element in data%}
                 <div class="card bg-dark text-white">
-                  <img src="{{ element['src']}}" class="card-img" alt="...">
+                  <img src="{{ element['src']}}" class="card-img center-cropped" alt="...">
                   <div class="card-img-overlay">
                     <h5 class="card-title">{{ element['name']}}</h5>
                   </div>
@@ -39,6 +39,12 @@ Foodridise
     .test{
       /* background: orange; */
       border: 1px solid black;
+    }
+    .center-cropped {
+
+      object-position: center; /* Center the image within the element */
+      height: 140px;
+      width: 270px;
     }
   </style>
 {% endblock %}

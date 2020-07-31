@@ -5,4 +5,7 @@ dependencies:
   - flask
   - gunicorn
   - python=3.7
+  - nomkl
+  - pandas
+
 prefix: $HOME/miniconda3/envs/UI

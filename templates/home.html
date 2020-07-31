@@ -87,8 +87,8 @@ Foodridise
         });
 
         {% for element in data %}
-          var uluru1 = {lat: {{element['lat']}}, lng: {{element['lng']}}};
-          var marker1 = new google.maps.Marker({position: uluru1, map: map});
+          var loc = {lat: {{element['lat']}}, lng: {{element['lng']}}};
+          var marker = new google.maps.Marker({position: loc, map: map});
         {% endfor %}
 
 

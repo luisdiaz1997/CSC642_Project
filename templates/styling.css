@@ -1,0 +1,43 @@
+.innerboxstep4{
+  left: 25%;
+  width: 150px;
+  height:20%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+  background-color: black;
+  color: white;
+  top:30%;
+}
+
+
+.middlebox{
+  background-color: grey;
+  height:300px;
+}
+
+.paddingbox{
+  background-color: white;
+  height: 300px;
+}
+
+.innerboxstep3{
+  left: 35%;
+  width: 150px;
+  height:20%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  background-color: black;
+  color: white;
+  top:30%;
+}
+
+.middleboxstep3{
+  background-color: grey;
+  height:400px;
+}

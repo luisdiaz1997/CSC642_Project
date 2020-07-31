@@ -33,14 +33,15 @@ Foodridise
         </div>
       </div>
       <div class="col-4">
-        Col 2
+        <div id="map"></div>
       </div>
     </div>
   </div>
 {% endblock %}
 
 {% block style %}
-  
+
+
   <style type="text/css">
 
     .custom_row{
@@ -56,4 +57,39 @@ Foodridise
       text-shadow: 1px 1px black;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHlpPNqrRyyeho7w3t63GmM3EZzKF-e2k&callback=initMap">
+  </script>
+  <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      "use strict";
+
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: {
+            lat: -34.397,
+            lng: 150.644
+          },
+          zoom: 8
+        });
+      }
+    </script>
+
 {% endblock %}

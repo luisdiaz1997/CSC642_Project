@@ -57,10 +57,7 @@ Foodridise
       text-shadow: 1px 1px black;
     }
   </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHlpPNqrRyyeho7w3t63GmM3EZzKF-e2k&callback=initMap">
-  </script>
+
   <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -79,16 +76,18 @@ Foodridise
     <script>
       "use strict";
 
-      let map;
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-            lat: -34.397,
-            lng: 150.644
-          },
-          zoom: 8
+      function initMap()
+      {
+        var uluru = {lat: 34.086292, lng: -118.216081};
+        var uluru1 = {lat: 34.087, lng: -118.216081};
+        var uluru2 = {lat: 34.084, lng: -118.216081};
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: uluru,
+          zoom: 15
         });
+        var marker1 = new google.maps.Marker({position: uluru1, map: map});
+        var marker2 = new google.maps.Marker({position: uluru2, map: map});
+
       }
     </script>
 

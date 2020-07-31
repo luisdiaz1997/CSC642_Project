@@ -5,7 +5,7 @@ Foodridise
 {% endblock %}
 
 {% block content %}
-  {% include 'navbar.html' %}
+  {% include 'navbar_2.html' %}
   <div class="container">
     <div class="row custom_row">
       <div class="col-lg-8 col-sm-12">
@@ -13,6 +13,7 @@ Foodridise
         src=data[0]['im_src'], img_style="img_style",
         card_style="card_style",
         size='big', rating=data[0]['rating'])}}
+        <h6> 1600 Holloway Ave, San Francisco </h6>
         {{ card.close_card() }}
       </div>
       <div class="col-lg-4">
@@ -26,8 +27,6 @@ Foodridise
             {{ card.open_card(name=element['name'],
             src=element['im_src'], img_style="img_style",
             card_style="card_style", rating= element["rating"]) }}
-
-
             {{ card.close_card() }}
           {% endfor %}
         </div>

@@ -4,4 +4,4 @@ __pycache__/
 .vscode
 static/.DS_Store
 static/images/.DS_Store
-venv
+venv/

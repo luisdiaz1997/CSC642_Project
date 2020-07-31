@@ -3,7 +3,7 @@
   background-color: #EB8921;
   font-family: 'Roboto', sans-serif;
 }
-.navbar h1{
+.navbar h1, .navbar h3{
   -webkit-text-fill-color: white;
   text-transform: uppercase;
   font-weight: bold;

@@ -6,33 +6,33 @@ Foodridise
 
 {% block content %}
   {% include 'navbar.html' %}
-
-  {% block navbar_name %}{% endblock %}
   <div class="container">
     <div class="row custom_row">
-      <div class="col-8">
+      <div class="col-lg-8 col-sm-12">
         {{ card.open_card(name=data[0]['name'],
         src=data[0]['im_src'], img_style="img_style",
         card_style="card_style",
-        size='big')}}
+        size='big', rating=data[0]['rating'])}}
         {{ card.close_card() }}
       </div>
-      <div class="col-4">
+      <div class="col-lg-4">
         Col 2
       </div>
     </div>
     <div class="row custom_row">
-      <div class="col-8">
+      <div class="col-lg-8 col-sm-12">
         <div class="card-columns">
           {%for element in data[1:]%}
             {{ card.open_card(name=element['name'],
             src=element['im_src'], img_style="img_style",
-            card_style="card_style") }}
+            card_style="card_style", rating= element["rating"]) }}
+
+
             {{ card.close_card() }}
           {% endfor %}
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-12">
         <div id="map"></div>
       </div>
     </div>
@@ -56,6 +56,9 @@ Foodridise
     .card_style{
       text-shadow: 1px 1px black;
     }
+    .rating{
+      min-width: 120px;
+    }
   </style>
 
   <style type="text/css">
@@ -64,6 +67,9 @@ Foodridise
       #map {
         height: 100%;
         border-radius: 20px;
+        width: 100%;
+        min-height: 200px;
+        min-width: 200px;
       }
 
   </style>

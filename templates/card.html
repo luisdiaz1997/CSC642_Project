@@ -1,13 +1,30 @@
-{% macro open_card(name, src='', img_style='', card_style='', size='small') -%}
+{% macro open_card(name, src='', img_style='', card_style='', rating=0 ,size='small') -%}
   <div class="card bg-dark text-white {{card_style}}">
     <img src="{{ src }}" class="card-img {{ img_style }}" alt="...">
     <div class="card-img-overlay">
-      {%if size == 'small'%}
-        <h5 class="card-title">{{ name }}</h5>
+
+    <div class="card-title">
+      {% if size == 'big'%}
+        <h3>
+      {% else %}
+        <h5>
       {% endif %}
-      {%if size == 'big'%}
-        <h3 class="card-title">{{ name }}</h3>
+      {{name}}
+      <span style="display:inline-block">
+        {%for i in range(rating) %}
+          <svg class="bi" width="12" height="12" fill="currentColor">
+            <use xlink:href="/static/node_modules/bootstrap-icons/bootstrap-icons.svg#star-fill"/>
+          </svg>
+        {% endfor %}
+      </span>
+
+      {% if size == 'big'%}
+        </h3>
+      {% else %}
+        </h5>
       {% endif %}
+    </div>
+
 
 {%- endmacro %}
 

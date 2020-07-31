@@ -14,6 +14,7 @@ def home():
         df = scrape.construct_data('static/images')
         df.to_csv('static/data.csv', index=False)
 
+    df = df.sort_values(by='rating', ascending=False) #We sort by rating before sending
     df_json = df.to_json(orient='records')
 
     return render_template("home.html", title="Foodridise",

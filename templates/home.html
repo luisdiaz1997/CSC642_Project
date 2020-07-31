@@ -12,7 +12,7 @@ Foodridise
     <div class="row custom_row">
       <div class="col-8">
         {{ card.open_card(name=data[0]['name'],
-        src=data[0]['src'], img_style="img_style",
+        src=data[0]['im_src'], img_style="img_style",
         card_style="card_style",
         size='big')}}
         {{ card.close_card() }}
@@ -26,7 +26,7 @@ Foodridise
         <div class="card-columns">
           {%for element in data[1:]%}
             {{ card.open_card(name=element['name'],
-            src=element['src'], img_style="img_style",
+            src=element['im_src'], img_style="img_style",
             card_style="card_style") }}
             {{ card.close_card() }}
           {% endfor %}
@@ -79,14 +79,18 @@ Foodridise
       function initMap()
       {
         var uluru = {lat: 34.086292, lng: -118.216081};
-        var uluru1 = {lat: 34.087, lng: -118.216081};
+
         var uluru2 = {lat: 34.084, lng: -118.216081};
         var map = new google.maps.Map(document.getElementById("map"), {
           center: uluru,
-          zoom: 15
+          zoom: 13
         });
-        var marker1 = new google.maps.Marker({position: uluru1, map: map});
-        var marker2 = new google.maps.Marker({position: uluru2, map: map});
+
+        {% for element in data %}
+          var loc = {lat: {{element['lat']}}, lng: {{element['lng']}}};
+          var marker = new google.maps.Marker({position: loc, map: map});
+        {% endfor %}
+
 
       }
     </script>

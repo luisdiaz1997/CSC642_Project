@@ -1,0 +1,52 @@
+
+
+{% extends 'template.html' %}
+{% block title %}
+Lorem Pizzeria
+{% endblock %}
+
+{% block content %}
+  {% include 'navbar.html' %}
+  <div class="container">
+      <h1>Lorem Pizzeria</h1>
+      <p>1600 Holloway Ave, San Francisco, CA 94132</p>
+      {% for row in items|batch(5) %}
+            <div class="columns">
+                {% for column in row %}
+                <div class="column">
+                    <p class="notification is-danger">{{ column }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+
+      <!---
+      <div class="row">
+        
+        <div class="col-8"><h2> Featured Items</h2>
+            <div class="col-md-2">
+               <div class="card mb-2 box-shadow">
+                  
+                   
+               </div>
+             
+        
+        </div>
+        
+        
+        </div>
+
+        <div class="col-8"><h2> Full Menu</h2></div>
+
+        <div class="col-4">Your Order</div>
+      </div>
+     
+
+  </div>
+
+   -->
+
+  
+{% endblock %}

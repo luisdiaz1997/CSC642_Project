@@ -1,0 +1,22 @@
+{% macro open_card(name,  src='', img_style='-top', card_style='', size='small') -%}
+  <div class="card bg-dark text-white {{card_style}}">
+    <img src="{{ src }}" class="card-img {{ img_style }}" alt="...">
+   
+    <div class="card-body">
+      {%if size == 'small'%}
+        <h5 class="card-title">{{ name }}</h5>
+        <p class="card-text">$11.99</p>
+       
+      {% endif %}
+      {%if size == 'big'%}
+        <h3 class="card-title">{{ name }}</h3>
+        <p class="card-text">$11.99</p>
+       
+      {% endif %}
+
+{%- endmacro %}
+
+{% macro close_card() -%}
+    </div>
+  </div>
+{%- endmacro %}

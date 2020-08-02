@@ -1,0 +1,72 @@
+{% extends 'template.html' %}
+{% block title %}
+Sign Up: Step 3
+{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+<h2 style="text-align:center">Step 3: Share us your menu<h2>
+  <h3 style="text-align:center;">How would you like to share your menu?</h3>
+  <div class="container">
+    <!--<div class="row">
+      <div class="col-lg-5" style="background-color: grey; height: 300px;">
+        <div class="col-sm-12" style="top: 50%;background-color: white;">I already have a menu</div>
+      </div>
+        <div class="col-lg-2"></div>
+      <div class="col-lg-5" style="background-color: grey; height: 300px;">
+        <div class="col-sm-12" style="top:50%; background-color: white;">Create menu with Fooridise</div>
+      </div>
+
+    </div>-->
+
+    <div class="row">
+      <div class="col-lg-6 paddingbox">
+        <div class="col-lg-12 middleboxstep3">
+          <div class="col-lg-12 innerboxstep3">
+            I already have a menu
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 paddingbox">
+        <div class="col-lg-12 middleboxstep3">
+          <div class="col-lg-12 innerboxstep3">
+            Create Menu With Fooridise
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block style %}
+
+
+  <style type="text/css">
+    .paddingbox{
+      background-color: white;
+      height: 300px;
+    }
+
+  .innerboxstep3{
+      left: 35%;
+      width: 150px;
+      height:20%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 30px;
+      background-color: black;
+      color: white;
+      top:30%;
+
+    }
+
+  .middleboxstep3{
+      background-color: grey;
+      height:400px;
+    }
+  </style>
+
+{% endblock %}

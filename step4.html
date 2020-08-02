@@ -1,0 +1,66 @@
+{% extends 'template.html' %}
+{% block title %}
+Sign Up: Step 4
+{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+<h2 style="text-align:center">Step 4: Get your orders<h2>
+<h5 style="text-align:center;">
+  You will mainly get your orders through the Fooridise app. You may select one or more ways
+  to get your orders below.
+</h5>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 paddingbox">
+      <div class="col-lg-12 middlebox">
+        <div class="col-lg-12 innerboxstep4">Email</div>
+      </div>
+    </div>
+    <div class="col-lg-4 paddingbox">
+      <div class="col-lg-12 middlebox">
+        <div class="col-lg-12 innerboxstep4">Fax</div>
+      </div>
+    </div>
+    <div class="col-lg-4 paddingbox">
+      <div class="col-lg-12 middlebox">
+        <div class="col-lg-12 innerboxstep4">Fooridise</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+
+
+  <style type="text/css">
+    .innerboxstep4{
+    left: 25%;
+    width: 150px;
+    height:20%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    background-color: black;
+    color: white;
+    top:30%;
+  }
+
+
+  .middlebox{
+    background-color: grey;
+    height:300px;
+  }
+
+  .paddingbox{
+    background-color: white;
+    height: 300px;
+  }
+  </style>
+
+{% endblock %}

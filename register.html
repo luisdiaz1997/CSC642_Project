@@ -1,0 +1,60 @@
+{% extends 'template.html' %}
+{% block title %}
+Sign Up: Step 1
+{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+<h3 style="text-align: center">Step 1: Create your account</h3>
+<form class="centerforms" action="/<anything>" method="post" role="form">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input name="firstName" class="form-control" id="firstName" placeholder="Enter your first name">
+    <small id="first" class="form-text text-muted">Enter your first name only</small>
+  </div>
+
+  <div class="form-group">
+    <label for ="lastName">Last Name</label>
+    <input name="lastName" class="form-control" id="lastName" placeholder="Enter your last name">
+    <small class="form-text text-muted">Enter your last name only</small>
+  </div>
+
+  <div class="form-group">
+    <label for ="email">Email Address</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="email@mail.com">
+    <small class="form-text text-muted">Enter your email address</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" class="form-control" name="confirmPassword"id="confirmPassword" placeholder="Confirm Password">
+  </div>
+
+  <div>
+    <h3 style="text-align:center">Why Join Us?</h3>
+    <div style="text-align:center">
+      Lorem Ipsum
+    </div>
+  </div>
+
+
+</form>
+
+{% endblock %}
+
+{% block style %}
+
+
+  <style type="text/css">
+  .centerforms{
+  width:50%;
+  margin:auto
+  }
+  </style>
+
+{% endblock %}

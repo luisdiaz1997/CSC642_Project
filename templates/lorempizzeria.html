@@ -1,0 +1,166 @@
+{% import 'card2.html' as card %}
+{% extends 'template.html' %}
+{% block title %}
+Foodridise
+{% endblock %}
+
+{% block content %}
+  {% include 'navbar.html' %}
+
+  {% block navbar_name %}{% endblock %}
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+  <div class="container">
+    <div class="row custom_row">
+      <div class="col-8">
+        <h1 class="restaurant-h1">Lorem Pizzeria</h1>
+        <span class="hours"> OPEN FOR DELIVERY, 6P-7P </span>
+        <span class="promo"> Student Discount</span>
+        <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
+      </div>
+      <div class="col-4 card">
+        <div class="card-body">
+          Cart-to-be
+        </div>
+       
+      </div>
+    </div>
+    <div class="row custom_row">
+      <div class="col-8">
+        <h3 class="restaurant-h3">Feature Items</h3>
+        <div class="card-columns">
+          {%for element in data[5:]%}
+            {{ card.open_card(name=element['name'],
+            src=element['src'], img_style="img_style",
+            card_style="card_style") }}
+            {{ card.close_card() }}
+          {% endfor %}
+        </div>
+        <h3 class="restaurant-h3"> Full Items</h3>
+        <div class="card-columns">
+          {%for element in data[0:]%}
+            {{ card.open_card(name=element['name'],
+            src=element['src'], img_style="img_style",
+            card_style="card_style") }}
+            {{ card.close_card() }}
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="col-4">
+        <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block style %}
+
+
+  <style type="text/css">
+  .restaurant-h1 {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: -1em;
+  }
+
+  .restaurant-h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  
+  .restaurant-h3 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #EB8921;
+  }
+
+  .hours {
+    font-weight: bold;
+    background-color: #85C33D;
+    color: white;
+    border-radius: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 0.5em;
+  }
+
+  .promo {
+    font-style: italic;
+    font-weight:500;
+    color: #5162FA;
+    border-radius: 100px;
+    margin-left: 0.5em;
+  }
+
+    .custom_row{
+      margin-top: 2%
+    }
+    .img_style{
+        object-fit: cover;
+        object-position: center;
+        height: 138px;
+        width: 100%;
+    }
+    .card_style{
+      border-style: none;
+    }
+    .card-body {
+      background-color: white;
+    }
+    .card-title {
+      color: black;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .card-text {
+      color: black;
+    }
+
+    .btn-primary {
+      position: abosolute; 
+      padding: 1em;
+      background-color: #ABABAB;
+      border: none;
+      
+    }
+
+    
+  </style>
+
+  <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      "use strict";
+
+      function initMap()
+      {
+        var uluru = {lat: 34.086292, lng: -118.216081};
+        var uluru1 = {lat: 34.087, lng: -118.216081};
+        var uluru2 = {lat: 34.084, lng: -118.216081};
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: uluru,
+          zoom: 15
+        });
+        var marker1 = new google.maps.Marker({position: uluru1, map: map});
+        var marker2 = new google.maps.Marker({position: uluru2, map: map});
+
+      }
+    </script>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% import 'card2.html' as card %}
+<!-- {% import 'card2.html' as card %} -->
 {% extends 'template.html' %}
 {% block title %}
 Foodridise
@@ -10,6 +10,8 @@ Foodridise
   {% include 'navbar.html' %}
 
   {% block navbar_name %}{% endblock %}
+
+  
   
 
   <div class="container">
@@ -20,50 +22,69 @@ Foodridise
         <span class="promo"> Student Discount</span>
         <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
       </div>
-      <div class="col-4 card">
-        <div class="card-body cart">
-          <ul>
-            <li v-for="element in cart">
-              [[element.name]] [[element.quantity]]
-            </li>
-          </ul>
-          <p>Cart({{cart}})</p>
-
-         
-        </div>
+      <div class="col-4">
+        
        
       </div>
     </div>
+    
+    
     <div class="row custom_row">
-      <div class="col-8">
-        <h3 class="restaurant-h3">Featured Items</h3>
+      <div class="col-8" >
+        <h3 class="restaurant-h3">Full Menu</h3>
         <div class="card-columns">
-          {%for element in data[5:]%}
-            {{ card.open_card(name=element['name'],
-            src=element['src'], img_style="img_style",
-            card_style="card_style") }}
-            {{ card.close_card() }}
-          {% endfor %}
+        <div class="card bg-dark text-white" :key="product.id" v-for="product in products">
+          <img :src="product.image" :alt="product.name" class="card-img-top" data-toggle="modal" data-name="product.name" data-target="#editModal">
+          <div class="card-body">
+            <h4 class="card-title">[[product.name]]</h4>
+            <div class="card-text">$[[product.price/100]]</div>
+            {% include 'editmodal.html' %}
+            
+
+          
+          </div>
+
+          </div>
+        
         </div>
-        <h3 class="restaurant-h3"> Full Menu</h3>
-        <div class="card-columns">
-          {%for element in data[0:]%}
-            {{ card.open_card(name=element['name'],
-            src=element['src'], img_style="img_style",
-            card_style="card_style") }}
-            {{ card.close_card() }}
-          {% endfor %}
-        </div>
+        
       </div>
       
-      <div class="col-4">
-        
+      <div class="col-4 card">
+        <div>
+          <div class="card-body cart">
+            <h5>Your Order</h5>
+            <ul>
+              <li v-for="element in cart">
+                [[element.quantity]] [[element.name]] - $[[element.price/100]]
+              </li>
+            </ul>
+            
+  
+           
+          </div>
         <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+      
+      </div>
       </div>
     </div>
   </div>
+  </div>
 
 </div>
+
+
+  <script>
+    $('#editModal').on('show.bs.modal', function (event) {
+    var img = $(event.relatedTarget) // Button that triggered the modal
+    var name = img.data('name') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('Customize ' + name)
+    modal.find('.modal-body input').val(name)
+  })
+  </script>
 
 <script src ="http://unpkg.com/vue"></script>
   <script>
@@ -72,33 +93,30 @@ Foodridise
           delimiters: ['[[', ']]'],
           data: {
             products: [
-                  {"id":1, "quantity":1, "name":"Make-Your-Own-Pizza"},
-                  {"id":2, "quantity":1, "name":"Classic Cheese"},
-                  {"id":3, "quantity":1, "name":"Meat Lovin"},
-                  {"id":4, "quantity":1, "name":"BBQ Chickin"},
-                  {"id":5, "quantity":1, "name":"Hwat Dog"},
-                  {"id":6, "quantity":1, "name":"Protein-Style Pizza"},
-                  {"id":7, "quantity":1, "name":"One-top Pizza"},
-                  {"id":8, "quantity":1, "name":"Two-top Pizza"}
-                  
-
+                  {id:1, quantity:1, name:"Make-Your-Own", image: 'static/images2/Make-Your-Own.jpg', price: 1199},
+                  {id:2, quantity:1, name:"Classic Cheese", image: 'static/images2/Classic Cheese.jpg', price: 1199},
+                  {id:3, quantity:1, name:"Meat Lovin", image: 'static/images2/Meat Lovin Pizza.jpg', price: 1199},
+                  {id:4, quantity:1, name:"BBQ Chicken", image: 'static/images2/BBQ Chicken.jpg', price: 1199},
+                  {id:5, quantity:1, name:"Hawt Dog", image: 'static/images2/Hawt Dog.jpg', price: 1199},
+                  {id:6, quantity:1, name:"Protein-Style", image: 'static/images2/Protein-Style.jpg', price: 1199},
+                  {id:7, quantity:1, name:"One-top Pizza", image: 'static/images2/One-top Pizza.jpg', price: 1199},
+                  {id:8, quantity:1, name:"Two-top Pizza", image: 'static/images2/Two-top Pizza.jpg', price: 1199}
                   ],
-            cart: 0
+            cart: [],
           },
             methods: {
-              addToCart(){
-                this.cart += 1
+              addToCart(product){
+                this.cart.push(product);
               },
-              updateProduct(variantTopping){
-                this.topping = variantTopping;
-              }
-              
+                  
               }
             
           
       })
 
 </script>
+
+
 
 
 

@@ -1,10 +1,11 @@
 
 <div class="modal-body">
-    <div class=modal-body>
-        <form>
+   
+         <form>
+            
             <div class="form-group form-check">
-                <h5>Pizza: {{name}}</h5>
-                <!--Sauce Section-->
+                <label for="item-name">Pizza: </label>
+                
                 <h5 class="topping-title">Sauce</h5> 
                 <section>
                     <div class="form-check">
@@ -23,7 +24,7 @@
                       </div>
                 </section>
 
-                <!--Cheese Section-->
+                <!-- Cheese Section -->
                 <h5 class="topping-title">Cheese</h5> 
                 <section>
                     <div class="form-check">
@@ -32,7 +33,7 @@
                     </div>
                 </section>
 
-                <!--Extra Section-->
+                <!-- Extra Section -->
                 <h5 class="topping-title">Extras</h5> 
                 <section>
                     <div class="checkbox">
@@ -54,9 +55,11 @@
                 <input type="number" id="number" v-model.number="products[0].quantity" />
                 <div class="value-button" id="increase" @click="products[0].quantity++" value="Increase Value">+</div>
               </form>
-      </form>
-  </div>
+      </form> 
+  
 </div>
+
+
 
 
 

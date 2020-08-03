@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <title>Sign Up: Step 2</title>
+  </head>
+  <body>
+    <h3>Step 2: Tell us about your restaurant</h3>
+    <form>
+      <div class="form-group">
+        <label for="restaurantName">Restaurant Name</label>
+        <input type="firstName" class="form-control" id="firstName" placeholder="Enter restaurant name">
+        <small id="first" class="form-text text-muted">Enter your restaurant's official name</small>
+      </div>
+
+      <div class="form-group">
+        <label for="restaurantName">Restaurant Hours</label>
+        <input class="form-control" id="hours" placeholder="Enter restaurant hours">
+        <small class="form-text text-muted">Enter your restaurant's hours of operation</small>
+      </div>
+      <label>Restaurant Address</label>
+      <div class="form-group">
+        <label for="restaurantName">Street</label>
+        <input class="form-control" id="street" placeholder="Enter restaurant street address">
+        <small id="first" class="form-text text-muted">Enter the street </small>
+      </div>
+
+      <div class="form-group">
+        <label for="restaurantName">City</label>
+        <input class="form-control" id="city" placeholder="Enter city">
+        <small class="form-text text-muted">Enter the city your restaurant is located in </small>
+      </div>
+
+      <div class="form-group">
+        <label for="restaurantName">State</label>
+        <select name="state" type="text" class="form-control" id="stateName" aria-describedby="inputGroupPrepend" required>
+          <option selected> </option>
+          <option value="AL">AL</option>
+          <option value="AK">AK</option>
+          <option value="AR">AR</option>
+          <option value="AZ">AZ</option>
+          <option value="CA">CA</option>
+          <option value="CO">CO</option>
+          <option value="CT">CT</option>
+          <option value="DC">DC</option>
+          <option value="DE">DE</option>
+          <option value="FL">FL</option>
+          <option value="GA">GA</option>
+          <option value="HI">HI</option>
+          <option value="IA">IA</option>
+          <option value="ID">ID</option>
+          <option value="IL">IL</option>
+          <option value="IN">IN</option>
+          <option value="KS">KS</option>
+          <option value="KY">KY</option>
+          <option value="LA">LA</option>
+          <option value="MA">MA</option>
+          <option value="MD">MD</option>
+          <option value="ME">ME</option>
+          <option value="MI">MI</option>
+          <option value="MN">MN</option>
+          <option value="MO">MO</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="NC">NC</option>
+          <option value="NE">NE</option>
+          <option value="NH">NH</option>
+          <option value="NJ">NJ</option>
+          <option value="NM">NM</option>
+          <option value="NV">NV</option>
+          <option value="NY">NY</option>
+          <option value="ND">ND</option>
+          <option value="OH">OH</option>
+          <option value="OK">OK</option>
+          <option value="OR">OR</option>
+          <option value="PA">PA</option>
+          <option value="RI">RI</option>
+          <option value="SC">SC</option>
+          <option value="SD">SD</option>
+          <option value="TN">TN</option>
+          <option value="TX">TX</option>
+          <option value="UT">UT</option>
+          <option value="VT">VT</option>
+          <option value="VA">VA</option>
+          <option value="WA">WA</option>
+          <option value="WI">WI</option>
+          <option value="WV">WV</option>
+          <option value="WY">WY</option>
+        </select>
+        <small class="form-text text-muted">
+           Please choose the state your restaurant is in.
+         </small>
+      </div>
+
+      <div class="form-group">
+        <label for="Zip Code">Zip Code</label>
+        <input class="form-control" id="zip" placeholder="Enter zip code">
+        <small class="form-text text-muted">Enter the zip code </small>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select name="country" type="text" class="form-control" id="countryName" aria-describedby="inputGroupPrepend" required>
+          <option selected> </option>
+          <option value="United States">United States</option>
+        </select>
+        <small class="form-text text-muted">
+           Please choose the country your restaurant is in.
+         </small>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="phoneNum" class="form-control" id="phoneNum" placeholder="(111)111-1111">
+        <small id="first" class="form-text text-muted">Enter a number so customers can contact your restaurant</small>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Restaurant Type</label>
+        <input type="type" class="form-control" id="type" placeholder="Enter restaurant type">
+        <small id="first" class="form-text text-muted">Ex. Mexican, Cafe, Burgers, etc.</small>
+      </div>
+
+
+
+
+
+    </form>
+
+  </body>
+</html>

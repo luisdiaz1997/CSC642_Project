@@ -6,33 +6,32 @@ Foodridise
 
 {% block content %}
   {% include 'navbar.html' %}
-
-  {% block navbar_name %}{% endblock %}
   <div class="container">
     <div class="row custom_row">
-      <div class="col-8">
+      <div class="col-lg-8 col-sm-12">
         {{ card.open_card(name=data[0]['name'],
-        src=data[0]['src'], img_style="img_style",
+        src=data[0]['im_src'], img_style="img_style",
         card_style="card_style",
-        size='big')}}
+        size='big', rating=data[0]['rating'])}}
+        <h6> 1600 Holloway Ave, San Francisco </h6>
         {{ card.close_card() }}
       </div>
-      <div class="col-4">
-        Col 2
+      <div class="col-lg-4">
+        <!-- Col 2 -->
       </div>
     </div>
     <div class="row custom_row">
-      <div class="col-8">
+      <div class="col-lg-8 col-sm-12">
         <div class="card-columns">
           {%for element in data[1:]%}
             {{ card.open_card(name=element['name'],
-            src=element['src'], img_style="img_style",
-            card_style="card_style") }}
+            src=element['im_src'], img_style="img_style",
+            card_style="card_style", rating= element["rating"]) }}
             {{ card.close_card() }}
           {% endfor %}
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-12">
         <div id="map"></div>
       </div>
     </div>
@@ -56,6 +55,9 @@ Foodridise
     .card_style{
       text-shadow: 1px 1px black;
     }
+    .rating{
+      min-width: 120px;
+    }
   </style>
 
   <style type="text/css">
@@ -63,32 +65,32 @@ Foodridise
        * element that contains the map. */
       #map {
         height: 100%;
+        border-radius: 20px;
+        width: 100%;
+        min-height: 200px;
+        min-width: 200px;
       }
 
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script>
-      "use strict";
+  </style>
+  <script>
+    "use strict";
 
-      function initMap()
-      {
-        var uluru = {lat: 34.086292, lng: -118.216081};
-        var uluru1 = {lat: 34.087, lng: -118.216081};
-        var uluru2 = {lat: 34.084, lng: -118.216081};
-        var map = new google.maps.Map(document.getElementById("map"), {
-          center: uluru,
-          zoom: 15
-        });
-        var marker1 = new google.maps.Marker({position: uluru1, map: map});
-        var marker2 = new google.maps.Marker({position: uluru2, map: map});
+    function initMap()
+    {
+      var uluru = {lat: 34.086292, lng: -118.216081};
 
-      }
-    </script>
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: uluru,
+        zoom: 13
+      });
+
+      var data = {{data|tojson}};
+      data.forEach((element) => {
+        var loc = {lat: element["lat"], lng: element["lng"]};
+        var marker = new google.maps.Marker({position: loc, map: map});
+      });
+
+    }
+  </script>
 
 {% endblock %}

@@ -1,11 +1,13 @@
 {% macro open_card(name,  src='', img_style='-top', card_style='', size='small') -%}
   <div class="card bg-dark text-white {{card_style}}">
-    <img src="{{ src }}" class="card-img {{ img_style }}" alt="...">
+    <img src="{{ src }}" data-toggle="modal" data-target="#editModal" class="card-img {{ img_style }}" alt="...">
    
     <div class="card-body">
       {%if size == 'small'%}
         <h5 class="card-title">{{ name }}</h5>
         <p class="card-text">$11.99</p>
+        <!-- Modal -->
+        {% include 'editmodal.html' %}
        
       {% endif %}
       {%if size == 'big'%}

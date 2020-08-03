@@ -4,11 +4,13 @@
 Foodridise
 {% endblock %}
 
+
 {% block content %}
+<div id="app">
   {% include 'navbar.html' %}
 
   {% block navbar_name %}{% endblock %}
-  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  
 
   <div class="container">
     <div class="row custom_row">
@@ -19,15 +21,22 @@ Foodridise
         <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
       </div>
       <div class="col-4 card">
-        <div class="card-body">
-          Cart-to-be
+        <div class="card-body cart">
+          <ul>
+            <li v-for="element in cart">
+              [[element.name]] [[element.quantity]]
+            </li>
+          </ul>
+          <p>Cart({{cart}})</p>
+
+         
         </div>
        
       </div>
     </div>
     <div class="row custom_row">
       <div class="col-8">
-        <h3 class="restaurant-h3">Feature Items</h3>
+        <h3 class="restaurant-h3">Featured Items</h3>
         <div class="card-columns">
           {%for element in data[5:]%}
             {{ card.open_card(name=element['name'],
@@ -36,7 +45,7 @@ Foodridise
             {{ card.close_card() }}
           {% endfor %}
         </div>
-        <h3 class="restaurant-h3"> Full Items</h3>
+        <h3 class="restaurant-h3"> Full Menu</h3>
         <div class="card-columns">
           {%for element in data[0:]%}
             {{ card.open_card(name=element['name'],
@@ -48,16 +57,60 @@ Foodridise
       </div>
       
       <div class="col-4">
+        
         <button type="button" class="btn btn-primary">Proceed to Checkout</button>
       </div>
     </div>
   </div>
+
+</div>
+
+<script src ="http://unpkg.com/vue"></script>
+  <script>
+      const app = new Vue({
+          el: '#app',
+          delimiters: ['[[', ']]'],
+          data: {
+            products: [
+                  {"id":1, "quantity":1, "name":"Make-Your-Own-Pizza"},
+                  {"id":2, "quantity":1, "name":"Classic Cheese"},
+                  {"id":3, "quantity":1, "name":"Meat Lovin"},
+                  {"id":4, "quantity":1, "name":"BBQ Chickin"},
+                  {"id":5, "quantity":1, "name":"Hwat Dog"},
+                  {"id":6, "quantity":1, "name":"Protein-Style Pizza"},
+                  {"id":7, "quantity":1, "name":"One-top Pizza"},
+                  {"id":8, "quantity":1, "name":"Two-top Pizza"}
+                  
+
+                  ],
+            cart: 0
+          },
+            methods: {
+              addToCart(){
+                this.cart += 1
+              },
+              updateProduct(variantTopping){
+                this.topping = variantTopping;
+              }
+              
+              }
+            
+          
+      })
+
+</script>
+
+
+
+
 {% endblock %}
 
 {% block style %}
 
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style type="text/css" >
 
-  <style type="text/css">
+  
   .restaurant-h1 {
     font-size: 30px;
     font-weight: bold;
@@ -127,40 +180,124 @@ Foodridise
       
     }
 
+    #app {
+          color: black;
+      }
+      .modal-title {
+          color: #EB8921;
+      }
+
+      .topping-title {
+          padding-left: -1em;
+      }
+
+      form {
+          color: black;
+      }
+
+      section {
+          padding-bottom: 1em;
+      }
+
+      .btn-primary {
+          background-color: #EB8921;
+          border-radius: 50px;
+      }
+
+      .btn-primary:hover {
+          background-color: #EB8921;
+          border-radius: 50px;
+          outline: none;
+          
+      }
+
+      .quantity{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .value-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 0;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .value-button:hover {
+        cursor: pointer;
+      }
+
+      form #decrease {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+          background-clip: padding-box;
+      }
+
+      form #increase {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+      }
+
+      form #input-wrap {
+          color: #000;
+          display: inline-block;
+          vertical-align: top;
+          font-size: 25px;
+          font-weight: 700;
+          line-height: 30px;
+          padding: 0 2px
+          ;min-width: 35px;
+          text-align: center;
+      }
+
+      input#number {
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
     
   </style>
 
-  <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
+  
 
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script>
-      "use strict";
 
-      function initMap()
-      {
-        var uluru = {lat: 34.086292, lng: -118.216081};
-        var uluru1 = {lat: 34.087, lng: -118.216081};
-        var uluru2 = {lat: 34.084, lng: -118.216081};
-        var map = new google.maps.Map(document.getElementById("map"), {
-          center: uluru,
-          zoom: 15
-        });
-        var marker1 = new google.maps.Marker({position: uluru1, map: map});
-        var marker2 = new google.maps.Marker({position: uluru2, map: map});
-
-      }
-    </script>
 
 {% endblock %}

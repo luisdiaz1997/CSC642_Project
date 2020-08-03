@@ -1,0 +1,18 @@
+<div class="modal fade" id="editModal" tabindex="-1"   role="dialog"  aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" :key="product.id" v-for="product in products">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Customize [[product.name]]</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        Modal body content
+        {% include 'editmodalbody.html' %}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary on" @click="addToCart(product)">[[isInCart ? 'Added to cart': 'Add to Cart']]</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,321 @@
+<!-- {% import 'card2.html' as card %} -->
+{% extends 'template.html' %}
+{% block title %}
+Foodridise
+{% endblock %}
+
+
+{% block content %}
+<div id="app">
+  {% include 'navbar.html' %}
+
+  {% block navbar_name %}{% endblock %}
+
+  
+  
+
+  <div class="container">
+    <div class="row custom_row">
+      <div class="col-8">
+        <h1 class="restaurant-h1">Lorem Pizzeria</h1>
+        <span class="hours"> OPEN FOR DELIVERY, 6P-7P </span>
+        <span class="promo"> Student Discount</span>
+        <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
+      </div>
+      <div class="col-4">
+        
+       
+      </div>
+    </div>
+    
+    
+    <div class="row custom_row">
+      <div class="col-8" >
+        <h3 class="restaurant-h3">Full Menu</h3>
+        <div class="card-columns">
+        <div class="card bg-dark text-white" :key="product.id" v-for="product in products">
+          <img :src="product.image" :alt="product.name" class="card-img-top" data-toggle="modal" data-name="product.name" data-target="#editModal">
+          <div class="card-body">
+            <h4 class="card-title">[[product.name]]</h4>
+            <div class="card-text">$[[product.price/100]]</div>
+            {% include 'editmodal.html' %}
+            
+
+          
+          </div>
+
+          </div>
+        
+        </div>
+        
+      </div>
+      
+      <div class="col-4 card">
+        <div>
+          <div class="card-body cart">
+            <h5>Your Order</h5>
+            <ul>
+              <li v-for="element in cart">
+                [[element.quantity]] [[element.name]] - $[[element.price/100]]
+              </li>
+            </ul>
+            
+  
+           
+          </div>
+        <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+      
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+
+  <script>
+    $('#editModal').on('show.bs.modal', function (event) {
+    var img = $(event.relatedTarget) // Button that triggered the modal
+    var name = img.data('name') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('Customize ' + name)
+    modal.find('.modal-body input').val(name)
+  })
+  </script>
+
+<script src ="http://unpkg.com/vue"></script>
+  <script>
+      const app = new Vue({
+          el: '#app',
+          delimiters: ['[[', ']]'],
+          data: {
+            products: [
+                  {id:1, quantity:1, name:"Make-Your-Own", image: 'static/images2/Make-Your-Own.jpg', price: 1199},
+                  {id:2, quantity:1, name:"Classic Cheese", image: 'static/images2/Classic Cheese.jpg', price: 1199},
+                  {id:3, quantity:1, name:"Meat Lovin", image: 'static/images2/Meat Lovin Pizza.jpg', price: 1199},
+                  {id:4, quantity:1, name:"BBQ Chicken", image: 'static/images2/BBQ Chicken.jpg', price: 1199},
+                  {id:5, quantity:1, name:"Hawt Dog", image: 'static/images2/Hawt Dog.jpg', price: 1199},
+                  {id:6, quantity:1, name:"Protein-Style", image: 'static/images2/Protein-Style.jpg', price: 1199},
+                  {id:7, quantity:1, name:"One-top Pizza", image: 'static/images2/One-top Pizza.jpg', price: 1199},
+                  {id:8, quantity:1, name:"Two-top Pizza", image: 'static/images2/Two-top Pizza.jpg', price: 1199}
+                  ],
+            cart: [],
+          },
+            methods: {
+              addToCart(product){
+                this.cart.push(product);
+              },
+                  
+              }
+            
+          
+      })
+
+</script>
+
+
+
+
+
+
+{% endblock %}
+
+{% block style %}
+
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style type="text/css" >
+
+  
+  .restaurant-h1 {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: -1em;
+  }
+
+  .restaurant-h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  
+  .restaurant-h3 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #EB8921;
+  }
+
+  .hours {
+    font-weight: bold;
+    background-color: #85C33D;
+    color: white;
+    border-radius: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 0.5em;
+  }
+
+  .promo {
+    font-style: italic;
+    font-weight:500;
+    color: #5162FA;
+    border-radius: 100px;
+    margin-left: 0.5em;
+  }
+
+    .custom_row{
+      margin-top: 2%
+    }
+    .img_style{
+        object-fit: cover;
+        object-position: center;
+        height: 138px;
+        width: 100%;
+    }
+    .card_style{
+      border-style: none;
+    }
+    .card-body {
+      background-color: white;
+    }
+    .card-title {
+      color: black;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .card-text {
+      color: black;
+    }
+
+    .btn-primary {
+      position: abosolute; 
+      padding: 1em;
+      background-color: #ABABAB;
+      border: none;
+      
+    }
+
+    #app {
+          color: black;
+      }
+      .modal-title {
+          color: #EB8921;
+      }
+
+      .topping-title {
+          padding-left: -1em;
+      }
+
+      form {
+          color: black;
+      }
+
+      section {
+          padding-bottom: 1em;
+      }
+
+      .btn-primary {
+          background-color: #EB8921;
+          border-radius: 50px;
+      }
+
+      .btn-primary:hover {
+          background-color: #EB8921;
+          border-radius: 50px;
+          outline: none;
+          
+      }
+
+      .quantity{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .value-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 0;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .value-button:hover {
+        cursor: pointer;
+      }
+
+      form #decrease {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+          background-clip: padding-box;
+      }
+
+      form #increase {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+      }
+
+      form #input-wrap {
+          color: #000;
+          display: inline-block;
+          vertical-align: top;
+          font-size: 25px;
+          font-weight: 700;
+          line-height: 30px;
+          padding: 0 2px
+          ;min-width: 35px;
+          text-align: center;
+      }
+
+      input#number {
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+    
+  </style>
+
+  
+
+
+
+{% endblock %}

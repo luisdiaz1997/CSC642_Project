@@ -16,6 +16,7 @@ Foodridise
            img_style="img_style"
            card_style="card_style"
            :rating="parseInt('{{data[0]['rating']}}')"
+           discount="{{data[0]['discount']}}"
            size="big">
           </build-card>
 
@@ -35,7 +36,8 @@ Foodridise
               im_src="{{element['im_src']}}"
               img_style="img_style"
               card_style="card_style"
-              :rating="parseInt('{{element['rating']}}')">
+              :rating="parseInt('{{element['rating']}}')"
+              discount="{{element['discount']}}">
               </build-card>
             {% endfor %}
           </div>
@@ -72,6 +74,15 @@ Foodridise
     }
     .rating{
       min-width: 120px;
+    }
+    .promo {
+      /* font-weight: bold; */
+      /*  background-color: #5162FA; */
+
+      border-radius: 100px;
+      /* padding-left: 1em;
+      padding-right: 1em; */
+      /* margin-left: 0.5em; */
     }
   </style>
 

@@ -45,21 +45,31 @@ Vue.component('build-card', {
     size:{
       type: String,
       default: 'small'
+    },
+    discount:{
+      type: String,
+      default: 'False'
     }
   },
   template: `
   <div :class="'card bg-dark text-white ' + card_style" @mouseover="hoverCard(true)" @mouseout="hoverCard(false)">
+
     <img :src="im_src" class="card-img" :class="{img_style, 'selected': isSelected}" alt="...">
+
     <div class="card-img-overlay">
       <div class="card-title">
         <h3 v-if="size==='big'">
-        [[name]] <add-stars :rating="parseInt(rating)"></add-stars>
+        [[name]] <add-stars :rating="rating"></add-stars>
         </h3>
         <h5 v-else>
-        [[name]] <add-stars :rating="parseInt(rating)"></add-stars>
+        [[name]] <add-stars :rating="rating"></add-stars>
         </h5>
+        <span v-if="discount==='True'">
+        <button type="button" class="btn btn-primary btn-sm promo">Student Discount</button></span>
       </div>
+      <a href="/lorempizzeria" class="stretched-link"></a>
     </div>
+
   </div>
   `,
   data(){
@@ -69,10 +79,7 @@ Vue.component('build-card', {
   },
   methods:{
     hoverCard(state){
-      this.isSelected= state //either true or false 
-    },
-    papu(){
-      return true
+      this.isSelected= state //either true or false
     }
   }
 })

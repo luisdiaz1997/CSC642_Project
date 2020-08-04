@@ -6,72 +6,64 @@ Foodridise
 
 
 {% block content %}
-<div id="app">
+
   {% include 'navbar.html' %}
 
-  {% block navbar_name %}{% endblock %}
+  <div id="app">
 
-  
-  
-
-  <div class="container">
-    <div class="row custom_row">
-      <div class="col-8">
-        <h1 class="restaurant-h1">Lorem Pizzeria</h1>
-        <span class="hours"> OPEN FOR DELIVERY, 6P-7P </span>
-        <span class="promo"> Student Discount</span>
-        <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
-      </div>
-      <div class="col-4">
-        
-       
-      </div>
-    </div>
-    
-    
-    <div class="row custom_row">
-      <div class="col-8" >
-        <h3 class="restaurant-h3">Full Menu</h3>
-        <div class="card-columns">
-        <div class="card bg-dark text-white" :key="product.id" v-for="product in products">
-          <img :src="product.image" :alt="product.name" class="card-img-top" data-toggle="modal" data-name="product.name" data-target="#editModal">
-          <div class="card-body">
-            <h4 class="card-title">[[product.name]]</h4>
-            <div class="card-text">$[[product.price/100]]</div>
-            {% include 'editmodal.html' %}
-            
-
-          
-          </div>
-
-          </div>
-        
+    <div class="container">
+      <div class="row custom_row">
+        <div class="col-8">
+          <h1 class="restaurant-h1">Lorem Pizzeria</h1>
+          <span class="hours"> OPEN FOR DELIVERY, 6P-7P </span>
+          <span class="promo"> Student Discount</span>
+          <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
         </div>
-        
+        <div class="col-4">
+
+
+        </div>
       </div>
-      
-      <div class="col-4 card">
-        <div>
-          <div class="card-body cart">
-            <h5>Your Order</h5>
-            <ul>
-              <li v-for="element in cart">
-                [[element.quantity]] [[element.name]] - $[[element.price/100]]
-              </li>
-            </ul>
-            
-  
-           
+
+
+      <div class="row custom_row">
+        <div class="col-8" >
+          <h3 class="restaurant-h3">Full Menu</h3>
+          <div class="card-columns">
+            <div class="card bg-dark text-white" :key="product.id" v-for="product in products">
+              <img :src="product.image" :alt="product.name" class="card-img-top" data-toggle="modal" data-name="product.name" :data-target="'#editModal'+product.id">
+              <div class="card-body">
+                <h4 class="card-title">[[product.name]]</h4>
+                <div class="card-text">$[[product.price/100]]</div>
+
+              </div>
+              {% include 'editmodal.html' %}
+
+            </div>
           </div>
-        <button type="button" class="btn btn-primary">Proceed to Checkout</button>
-      
-      </div>
+
+        </div>
+
+        <div class="col-4 card">
+          <div>
+            <div class="card-body cart">
+              <h5>Your Order</h5>
+              <ul>
+                <li v-for="element in cart">
+                  [[element.quantity]] [[element.name]] - $[[element.price/100]]
+                </li>
+              </ul>
+
+
+
+            </div>
+            <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-
-</div>
 
 
   <script>
@@ -87,34 +79,7 @@ Foodridise
   </script>
 
 <script src ="http://unpkg.com/vue"></script>
-  <script>
-      const app = new Vue({
-          el: '#app',
-          delimiters: ['[[', ']]'],
-          data: {
-            products: [
-                  {id:1, quantity:1, name:"Make-Your-Own", image: 'static/images2/Make-Your-Own.jpg', price: 1199},
-                  {id:2, quantity:1, name:"Classic Cheese", image: 'static/images2/Classic Cheese.jpg', price: 1199},
-                  {id:3, quantity:1, name:"Meat Lovin", image: 'static/images2/Meat Lovin Pizza.jpg', price: 1199},
-                  {id:4, quantity:1, name:"BBQ Chicken", image: 'static/images2/BBQ Chicken.jpg', price: 1199},
-                  {id:5, quantity:1, name:"Hawt Dog", image: 'static/images2/Hawt Dog.jpg', price: 1199},
-                  {id:6, quantity:1, name:"Protein-Style", image: 'static/images2/Protein-Style.jpg', price: 1199},
-                  {id:7, quantity:1, name:"One-top Pizza", image: 'static/images2/One-top Pizza.jpg', price: 1199},
-                  {id:8, quantity:1, name:"Two-top Pizza", image: 'static/images2/Two-top Pizza.jpg', price: 1199}
-                  ],
-            cart: [],
-          },
-            methods: {
-              addToCart(product){
-                this.cart.push(product);
-              },
-                  
-              }
-            
-          
-      })
-
-</script>
+  <script src="/static/js/order.js"></script>
 
 
 
@@ -128,7 +93,7 @@ Foodridise
 <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <style type="text/css" >
 
-  
+
   .restaurant-h1 {
     font-size: 30px;
     font-weight: bold;
@@ -140,7 +105,7 @@ Foodridise
     font-size: 15px;
     font-weight: 500;
   }
-  
+
   .restaurant-h3 {
     font-size: 25px;
     font-weight: 600;
@@ -191,11 +156,11 @@ Foodridise
     }
 
     .btn-primary {
-      position: abosolute; 
+      position: abosolute;
       padding: 1em;
       background-color: #ABABAB;
       border: none;
-      
+
     }
 
     #app {
@@ -226,7 +191,7 @@ Foodridise
           background-color: #EB8921;
           border-radius: 50px;
           outline: none;
-          
+
       }
 
       .quantity{
@@ -311,10 +276,10 @@ Foodridise
           margin: 0;
       }
 
-    
+
   </style>
 
-  
+
 
 
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="editModal" tabindex="-1"   role="dialog"  aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" :id="'editModal' +product.id" tabindex="-1"   role="dialog"  aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" :key="product.id" v-for="product in products">
       <div class="modal-content" >
         <div class="modal-header">
@@ -15,4 +15,3 @@
       </div>
     </div>
   </div>
-

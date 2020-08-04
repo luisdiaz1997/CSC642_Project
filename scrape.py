@@ -28,6 +28,7 @@ def construct_data(some_dir, location=np.array([[34.086292, -118.216081]])):
     df['lat'] = locations[:, 0]
     df['lng'] = locations[:, 1]
     df['rating'] = np.random.randint(1, 6, size=(len(df), 1))
+    df['id'] = np.arange(0, len(df), 1, dtype=np.int8)
     print(locations)
     print(df)
     return df

@@ -6,36 +6,51 @@ Foodridise
 
 {% block content %}
   {% include 'navbar.html' %}
-  <div class="container">
-    <div class="row custom_row">
-      <div class="col-lg-8 col-sm-12">
-        {{ card.open_card(name=data[0]['name'],
-        src=data[0]['im_src'], img_style="img_style",
-        card_style="card_style",
-        size='big', rating=data[0]['rating'])}}
-        <h6> 1600 Holloway Ave, San Francisco </h6>
-        {{ card.close_card() }}
-      </div>
-      <div class="col-lg-4">
-        <!-- Col 2 -->
-      </div>
-    </div>
-    <div class="row custom_row">
-      <div class="col-lg-8 col-sm-12">
-        <div class="card-columns">
-          {%for element in data[1:]%}
-            {{ card.open_card(name=element['name'],
-            src=element['im_src'], img_style="img_style",
-            card_style="card_style", rating= element["rating"]) }}
-            {{ card.close_card() }}
-          {% endfor %}
+  <div id="app">
+    <div class="container">
+      <div class="row custom_row">
+        <div class="col-lg-8 col-sm-12">
+          <build-card
+           name="{{data[0]['name']}}"
+           im_src="{{data[0]['im_src']}}"
+           img_style="img_style"
+           card_style="card_style"
+           :rating="parseInt('{{data[0]['rating']}}')"
+           discount="{{data[0]['discount']}}"
+           size="big"
+           address="1600 Holloway Blvd, San Francisco, CA 94132">
+          </build-card>
+
+        </div>
+        <div class="col-lg-4">
+          <!-- Col 2 -->
+
+          <!-- <assemble-cards :restaurant_data='{{data|tojson}}'></assemble-cards> -->
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12">
-        <div id="map"></div>
+      <div class="row custom_row">
+        <div class="col-lg-8 col-sm-12">
+          <div class="card-columns">
+            {%for element in data[1:]%}
+              <build-card
+              name="{{element['name']}}"
+              im_src="{{element['im_src']}}"
+              img_style="img_style"
+              card_style="card_style"
+              :rating="parseInt('{{element['rating']}}')"
+              discount="{{element['discount']}}">
+              </build-card>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div id="map"></div>
+        </div>
       </div>
     </div>
   </div>
+  <script src="http://unpkg.com/vue"></script>
+  <script src="/static/js/home.js"></script>
 {% endblock %}
 
 {% block style %}
@@ -55,8 +70,20 @@ Foodridise
     .card_style{
       text-shadow: 1px 1px black;
     }
+    .selected {
+      opacity: 0.75;
+    }
     .rating{
       min-width: 120px;
+    }
+    .promo {
+      /* font-weight: bold; */
+      /*  background-color: #5162FA; */
+
+      border-radius: 100px;
+      /* padding-left: 1em;
+      padding-right: 1em; */
+      /* margin-left: 0.5em; */
     }
   </style>
 
@@ -92,5 +119,6 @@ Foodridise
 
     }
   </script>
+
 
 {% endblock %}

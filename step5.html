@@ -5,11 +5,17 @@ Sign Up: Step 5
 
 {% block content %}
 {% include 'navbar_2.html' %}
+<br>
+<div class="col-lg-12" style="background-color: #EB8921; border-radius:5px; left:28%;width:600px; height:50px;">
 <h2 style="text-align:center">Step 5: Get paid</h2>
+</div>
+<br>
+<br>
 
   <form action="/<anything>" method="post" role="form">
-  <div class="row">
-    <div class="col-lg-6">
+    <div style="width: 1000px; background-color: #EB8921;border-radius:5px; width:50%; margin:auto;"
+    <div class="col-lg-12">
+      <br>
       <div class="form-group"  style="margin:auto; width: 600px;">
         <label for="legalName">Legal Business Name</label>
         <input name="legalName" class="form-control" id="legalName" placeholder="Your legal business name">
@@ -25,8 +31,10 @@ Sign Up: Step 5
         <input class="form-control" name="ein"id="ein" placeholder="Ex.000111222">
         <small id="first" class="form-text text-muted">Enter the 9 digit code without dashes</small>
       </div>
-      <div class="row" style="margin:auto;">
-        <div class=" col-lg-4 form-group">
+
+
+        <div class="form-group" style="margin: auto; width:600px;">
+                  <label> Business Establish Date </label><br>
         <label for="month">Month</label>
         <select name="month" type="text" class="form-control" id=" month" aria-describedby="inputGroupPrepend" required>
           <option selected> </option>
@@ -44,7 +52,7 @@ Sign Up: Step 5
           <option value="DEC">DEC</option>
           </select>
         </div>
-        <div class=" col-lg-4 form-group">
+        <div class="form-group" style="margin: auto; width:600px;">
         <label for="month">Day</label>
         <select name="month" type="text" class="form-control" id=" month" aria-describedby="inputGroupPrepend" required>
           <option selected> </option>
@@ -62,7 +70,7 @@ Sign Up: Step 5
           <option value="12">13</option>
           </select>
         </div>
-        <div class=" col-lg-4 form-group">
+        <div class="form-group" style="margin:auto; width:600px;">
         <label for="year">Year</label>
         <select name="year" type="text" class="form-control" id= "year" aria-describedby="inputGroupPrepend" required>
           <option selected> </option>
@@ -80,7 +88,7 @@ Sign Up: Step 5
           <option value="2009">2009</option>
           </select>
         </div>
-      </div>
+
       <div class="form-group"  style="margin:auto; width: 600px;">
         <label for="accountNum">Account Number</label>
         <input class="form-control" name="accountNum"id="accountNum" placeholder="Account Number">
@@ -100,14 +108,12 @@ Sign Up: Step 5
         <label for="confirmRoutingNum">Confirm Routing Number</label>
         <input class="form-control" name="confirmRoutingNum"id="confirmRoutingNum" placeholder="Routing Number">
         <small class="form-text text-muted">Re-Enter the 9 digit bank account routing number</small>
+        <br>
       </div>
-    </div>
-    <div class="col-lg-6">
+      </div>
+      </div>
       <br>
-      <br>
-      <br>
-      <img src="static/images/Lorum Wings.jpg" position="relative"top="20px" width="600px" height="500">
-    </div>
-  </div>
+
+
   </form>
 {% endblock %}

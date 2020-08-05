@@ -9,8 +9,8 @@ Vue.component('build-card', {
     }
   },
   template: `
-  <div class="card bg-dark text-white">
-    <img :src="product.image" class="card-img-top">
+  <div class="card bg-dark text-white" @mouseover="hoverCard(true)" @mouseout="hoverCard(false)">
+    <img :src="product.image" class="card-img-top" :class="{'selected': isSelected}">
     <div class="card-body">
       <h4 class="card-title">[[product.name]]</h4>
       <div class="card-text">$[[product.price/100]]</div>
@@ -18,7 +18,17 @@ Vue.component('build-card', {
       </a>
     </div>
   </div>
-  `
+  `,
+  data(){
+    return{
+      isSelected: false
+    }
+  },
+  methods:{
+    hoverCard(state){
+      this.isSelected= state //either true or false
+    }
+  }
 
 })
 Vue.component('my-modal', {

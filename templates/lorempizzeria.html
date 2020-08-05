@@ -63,7 +63,7 @@ Foodridise
 
             </div>
             <form action="#" method="GET">
-              <input type="hidden" name="order" :value=cart>
+              <input type="hidden" name="order" :value=JSON.stringify(cart)>
               <button type="submit" class="btn btn-primary" value="Submit">Proceed to Checkout</button>
             </form>
 
@@ -157,6 +157,9 @@ Foodridise
       background-color: #ABABAB;
       border: none;
 
+    }
+    .selected {
+      opacity: 0.75;
     }
 
     #app {

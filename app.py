@@ -48,6 +48,14 @@ def register():
 def resteraunt_reg():
     return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
 
+@app.route("/faq")
+def faq():
+    return render_template('faq.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
+
 
 
 @app.route("/lorempizzeria")

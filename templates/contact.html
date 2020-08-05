@@ -1,0 +1,70 @@
+{% extends 'template.html' %}
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+
+<!-- Banner -->
+<section id="banner_abt">
+    <div class="col-md-15">
+        <div class="container">
+            <div class="container-lg">
+                <h2 class = "text-center">Welcome to Fooridise!</h2>
+                <h6 class = "text-center">Your food awaits you...</h6>
+
+            </div>
+        </div></div>
+</section>
+
+<!-- Announcement -->
+<div class="container-fluid p-5">
+    <div class="card text-center">
+        <h3><div class="card-header">Contact us</div></h3>
+        <div class="card-body">
+            <h6 class="card-title">Your opinion matters. Let us know what you think by filling out this form.</h6>
+            <!-- <p class="card-text"></p> -->
+            <form class = "m-2">
+
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <textarea class="form-control col-md-12" name="description_register" id="description_register"
+                          placeholder="Comments/Questions/Concerns"
+                          rows="3"></textarea>
+
+                <div class="custom-file mx-auto m-3 ">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-dark m-3">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block style %}
+
+
+<style type="text/css">
+    .centerforms{
+    width:50%;
+    margin:auto
+    }
+</style>
+
+{% endblock %}

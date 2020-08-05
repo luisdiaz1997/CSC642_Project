@@ -12,6 +12,7 @@ Foodridise
   <div id="app">
 
     <div class="container">
+
       <div class="row custom_row">
         <div class="col-8">
           <h1 class="restaurant-h1">Lorem Pizzeria</h1>
@@ -30,18 +31,11 @@ Foodridise
         <div class="col-8" >
           <h3 class="restaurant-h3">Full Menu</h3>
           <div class="card-columns">
-            <div class="card bg-dark text-white" :key="product.id" v-for="product in products">
-              <img :src="product.image" :alt="product.name" class="card-img-top" data-toggle="modal" data-name="product.name" :data-target="'#editModal'+product.id">
-              <div class="card-body">
-                <h4 class="card-title">[[product.name]]</h4>
-                <div class="card-text">$[[product.price/100]]</div>
-
-              </div>
-              {% include 'editmodal.html' %}
-
-            </div>
+            <span v-for="product in products">
+              <build-card :product="product"></build-card>
+              <my-modal :product="product"></my-modal>
+            </span>
           </div>
-
         </div>
 
         <div class="col-4 card">
@@ -49,15 +43,29 @@ Foodridise
             <div class="card-body cart">
               <h5>Your Order</h5>
               <ul>
-                <li v-for="element in cart">
-                  [[element.quantity]] [[element.name]] - $[[element.price/100]]
+                <li v-for="order in cart">
+                  <h6>[[order.name]]</h6>
+                  <h6>Amount: [[order.number]]</h6>
+                  <h6>Sauce: [[order.sauce]]</h6>
+                  <h6 v-if="order.cheese">Cheese: [[order.cheese]]</h6>
+                  <h6 v-else>Cheese: none</h6>
+                  <h6>Extras:</h6>
+                  <ul>
+                    <li v-for="(i, extra) in order.extras" v-if="i">
+                      [[extra]]
+                    </li>
+                  </ul>
+
                 </li>
               </ul>
 
 
 
             </div>
-            <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+            <form action="#" method="GET">
+              <input type="hidden" name="order" :value=cart>
+              <button type="submit" class="btn btn-primary" value="Submit">Proceed to Checkout</button>
+            </form>
 
           </div>
         </div>
@@ -65,18 +73,6 @@ Foodridise
     </div>
   </div>
 
-
-  <script>
-    $('#editModal').on('show.bs.modal', function (event) {
-    var img = $(event.relatedTarget) // Button that triggered the modal
-    var name = img.data('name') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('Customize ' + name)
-    modal.find('.modal-body input').val(name)
-  })
-  </script>
 
 <script src ="http://unpkg.com/vue"></script>
   <script src="/static/js/order.js"></script>

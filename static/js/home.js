@@ -26,11 +26,11 @@ Vue.component('build-card', {
     },
     im_src: {
       type: String,
-      defaul: ''
+      default: ''
     },
     img_style: {
       type: String,
-      defaul: ''
+      default: ''
 
     },
     card_style:{
@@ -49,6 +49,10 @@ Vue.component('build-card', {
     discount:{
       type: String,
       default: 'False'
+    },
+    address:{
+      type: String,
+      default: ''
     }
   },
   template: `
@@ -64,8 +68,12 @@ Vue.component('build-card', {
         <h5 v-else>
         [[name]] <add-stars :rating="rating"></add-stars>
         </h5>
+        <div v-if="address">
+        [[address]]
+        </div>
         <span v-if="discount==='True'">
-        <button type="button" class="btn btn-primary btn-sm promo">Student Discount</button></span>
+        <button type="button" class="btn btn-primary btn-sm promo">Student Discount</button>
+        </span>
       </div>
       <a href="/lorempizzeria" class="stretched-link"></a>
     </div>

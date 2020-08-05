@@ -1,24 +1,10 @@
-<html>
-<body style="background-color:orange;">
-<?php include 'navbar.html'; ?>
+{% extends 'template.html' %}
+{% block title %}
+FAQ
+{% endblock %}
 
-<head>
-    <title>SFSU Software Engineering Project CSC 642, Summer 2020. For Demonstration Only</title>
-    <!-- Bootstrap -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
-    <!-- Custom Stylesheet -->
-    <link href="stylesheet.css" rel="stylesheet">
-
-</head>
-
-<body>
-<center>
+{% block content %}
+{% include 'navbar_2.html' %}
     <br>
     <br>
     <br>
@@ -29,6 +15,18 @@
             </div>
         </div>
     </div>
-</body>
 
-</html>
+{% endblock %}
+{% include 'footer.html' %}
+
+{% block style %}
+
+
+<style type="text/css">
+    .centerforms{
+        width:50%;
+        margin:auto
+    }
+</style>
+
+{% endblock %}

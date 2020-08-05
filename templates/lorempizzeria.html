@@ -1,0 +1,288 @@
+{% extends 'template.html' %}
+{% block title %}
+Foodridise
+{% endblock %}
+
+
+{% block content %}
+
+  {% include 'navbar.html' %}
+
+  <div id="app">
+
+    <div class="container">
+
+      <div class="row custom_row">
+        <div class="col-8">
+          <h1 class="restaurant-h1">Lorem Pizzeria</h1>
+          <span class="hours"> OPEN FOR DELIVERY, 6P-7P </span>
+          <span class="promo"> Student Discount</span>
+          <h2 class="restaurant-h2">1600 Holloway Blvd, San Francisco, CA 94132</h2>
+        </div>
+        <div class="col-4">
+
+
+        </div>
+      </div>
+
+
+      <div class="row custom_row">
+        <div class="col-8" >
+          <h3 class="restaurant-h3">Full Menu</h3>
+          <div class="card-columns">
+            <span v-for="product in products">
+              <build-card :product="product"></build-card>
+              <my-modal :product="product"></my-modal>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-4 card">
+          <div>
+            <div class="card-body cart">
+              <h5>Your Order</h5>
+              <ul>
+                <li v-for="order in cart">
+                  <h6>[[order.name]]</h6>
+                  <h6>Amount: [[order.number]]</h6>
+                  <h6>Sauce: [[order.sauce]]</h6>
+                  <h6 v-if="order.cheese">Cheese: [[order.cheese]]</h6>
+                  <h6 v-else>Cheese: none</h6>
+                  <h6>Extras:</h6>
+                  <ul>
+                    <li v-for="(i, extra) in order.extras" v-if="i">
+                      [[extra]]
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+
+
+
+            </div>
+            <form action="#" method="GET">
+              <input type="hidden" name="order" :value=JSON.stringify(cart)>
+              <button type="submit" class="btn btn-primary" value="Submit">Proceed to Checkout</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src ="http://unpkg.com/vue"></script>
+  <script src="/static/js/order.js"></script>
+
+
+
+
+
+
+{% endblock %}
+
+{% block style %}
+
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style type="text/css" >
+
+
+  .restaurant-h1 {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: -1em;
+  }
+
+  .restaurant-h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .restaurant-h3 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #EB8921;
+  }
+
+  .hours {
+    font-weight: bold;
+    background-color: #85C33D;
+    color: white;
+    border-radius: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 0.5em;
+  }
+  .custom_cursor{
+    cursor: pointer;
+  }
+
+  .promo {
+    font-style: italic;
+    font-weight:500;
+    color: #5162FA;
+    border-radius: 100px;
+    margin-left: 0.5em;
+  }
+
+    .custom_row{
+      margin-top: 2%
+    }
+    .img_style{
+        object-fit: cover;
+        object-position: center;
+        height: 138px;
+        width: 100%;
+    }
+    .card_style{
+      border-style: none;
+    }
+    .card-body {
+      background-color: white;
+    }
+    .card-title {
+      color: black;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .card-text {
+      color: black;
+    }
+
+    .btn-primary {
+      position: abosolute;
+      padding: 1em;
+      background-color: #ABABAB;
+      border: none;
+
+    }
+    .selected {
+      opacity: 0.75;
+      cursor: pointer;
+    }
+
+    #app {
+          color: black;
+      }
+      .modal-title {
+          color: #EB8921;
+      }
+
+      .topping-title {
+          padding-left: -1em;
+      }
+
+      form {
+          color: black;
+      }
+
+      section {
+          padding-bottom: 1em;
+      }
+
+      .btn-primary {
+          background-color: #EB8921;
+          border-radius: 50px;
+      }
+
+      .btn-primary:hover {
+          background-color: #EB8921;
+          border-radius: 50px;
+          outline: none;
+
+      }
+
+      .quantity{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .value-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 0;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .value-button:hover {
+        cursor: pointer;
+      }
+
+      form #decrease {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+          background-clip: padding-box;
+      }
+
+      form #increase {
+          cursor: pointer;
+          display: inline-block;
+          vertical-align: top;
+          color: white;
+          width: 30px;
+          height: 30px;
+          font: 30px/1 Arial,sans-serif;
+          text-align: center;
+          border-radius: 50%;
+      }
+
+      form #input-wrap {
+          color: #000;
+          display: inline-block;
+          vertical-align: top;
+          font-size: 25px;
+          font-weight: 700;
+          line-height: 30px;
+          padding: 0 2px
+          ;min-width: 35px;
+          text-align: center;
+      }
+
+      input#number {
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+
+  </style>
+
+
+
+
+
+{% endblock %}

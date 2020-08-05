@@ -1,3 +1,8 @@
 __pycache__/
 .DS_Store
 **/.DS_Store
+.vscode
+static/.DS_Store
+static/images/.DS_Store
+venv/
+node_modules

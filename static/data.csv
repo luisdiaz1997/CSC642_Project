@@ -1,0 +1,11 @@
+name,im_src,discount,lat,lng,rating,id
+Lorum Indian,/static/images/Lorum Indian.jpg,False,34.098154524178454,-118.21193750703078,3,0
+Lorum Pho,/static/images/Lorum Pho.jpg,False,34.086240053344724,-118.21821733380906,1,1
+Lorum Wings,/static/images/Lorum Wings.jpg,True,34.081065750396256,-118.21964736941723,4,2
+Lorum Burguers,/static/images/Lorum Burguers.jpg,True,34.09817184734089,-118.20390884030978,2,3
+Lorum Chicken,/static/images/Lorum Chicken.jpg,False,34.075444047690894,-118.20380204190968,1,4
+Lorum Pizzeria,/static/images/Lorum Pizzeria.jpg,True,34.090555802892524,-118.21610302042518,2,5
+Lorum Sandwish,/static/images/Lorum Sandwish.jpg,False,34.09094930359209,-118.21539521540151,5,6
+Lorum Healthy,/static/images/Lorum Healthy.jpg,False,34.10556585367809,-118.20750456482945,4,7
+Lorum Fish,/static/images/Lorum Fish.jpg,True,34.08365902737125,-118.22562756515532,4,8
+Lorum Kebab,/static/images/Lorum Kebab.jpg,False,34.09593230632417,-118.22437221559706,1,9

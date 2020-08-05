@@ -9,7 +9,7 @@ Vue.component('build-card', {
     }
   },
   template: `
-  <div class="card bg-dark text-white" @mouseover="hoverCard(true)" @mouseout="hoverCard(false)">
+  <div class="card bg-dark text-white custom_cursor" @mouseover="hoverCard(true)" @mouseout="hoverCard(false)">
     <img :src="product.image" class="card-img-top" :class="{'selected': isSelected}">
     <div class="card-body">
       <h4 class="card-title">[[product.name]]</h4>

@@ -23,7 +23,6 @@ def home():
     data=json.loads(df_json))
 
 
-
 #route for login
 @app.route("/login")
 def login():
@@ -48,18 +47,6 @@ def register():
 @app.route("/restaurant_reg")
 def resteraunt_reg():
     return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
-
-#route for restaurant to input menu images
-@app.route
-def menu_input():
-    return render_template("menu_input.html", title = "Menu Input")
-
-#route for placing order
-@app.route("/place_order")
-def order():
-    return render_template("starter.html", title = "Place Order")
-
-
 
 
 

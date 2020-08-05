@@ -23,7 +23,6 @@ def home():
     data=json.loads(df_json))
 
 
-
 #route for login
 @app.route("/login")
 def login():
@@ -49,18 +48,6 @@ def register():
 def resteraunt_reg():
     return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
 
-#route for restaurant to input menu images
-@app.route
-def menu_input():
-    return render_template("menu_input.html", title = "Menu Input")
-
-#route for placing order
-@app.route("/place_order")
-def order():
-    return render_template("starter.html", title = "Place Order")
-
-
-
 
 
 @app.route("/lorempizzeria")
@@ -76,7 +63,7 @@ def test():
     return render_template("register.html", title = "Place Order")
 
 #Restaurant step 1 to step 2
-@app.route("/step1", methods=["GET","POST"])
+@app.route("/step2", methods=["GET","POST"])
 def step1():
     if request.method == 'POST':
         firstName = request.form.get("firstName")
@@ -101,7 +88,7 @@ def step1():
     return render_template("restaurant_reg.html")
 
 #Step 2 to 3
-@app.route("/step2", methods=["GET","POST"])
+@app.route("/step3", methods=["GET","POST"])
 def step2():
 
     if request.method == 'POST':

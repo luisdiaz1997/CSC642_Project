@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+
 import json
 import scrape
 import pandas as pd
@@ -30,13 +31,22 @@ def login():
     return render_template("starter.html", title="Login")
 
 #route for registration
-@app.route("/register")
+@app.route("/register" , methods=['GET', 'POST'])
 def register():
 
     #if account exist, send to login
     userExists = False
     if userExists:
         redirect("/login")
+    
+    #start grabbing data 
+    if request.method == 'POST':
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
+        email = request.form['email']
+        password = request.form['password']
+
+    data = request.json
 
     return render_template("register.html", title = "Registration")
 
@@ -45,7 +55,7 @@ def register():
 #might need to append endpoint to register
 #TODO indicator on register if individual is making a account with a restaurant as well
 #TODO once someone enters resteraunt take them directly to menu route
-@app.route("/restaurant_reg")
+@app.route("/restaurant_reg", methods=['GET', 'POST'])
 def resteraunt_reg():
     return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
 

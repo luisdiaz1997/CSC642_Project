@@ -7,7 +7,7 @@ Customer Registration
 {% include 'navbar_2.html' %}
 <br>
 <center>
-    <h1>Welcome to Fooridise's Reigstration Form. Your Food awaits you!</h1>
+    <h1>Welcome to Fooridise's Registration Form. Your Food awaits you!</h1>
     <br>
     <br> Please fill out your information below:
 </center>
@@ -16,95 +16,91 @@ Customer Registration
     <div class="container jumbotron jumbotron-fluid" id="main-container">
         <div class="container center-div">
             <div class="col-lg-12">
-                <form id="registrationForm" method="post" action="indi_verification.php" data-toggle="validator">
+                <form id="registrationForm" method="post" action="/thankyou" data-toggle="validator">
                     <div class="row">
-                        <div class="wrapper">
-                            <div class="form-group col-md-5 has-feedback">
-                                <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName" pattern="[a-zA-Z]+" required>
-                            </div>
-                        </div>
-                        <div class="wrapper">
-                            <div class="form-group col-md-5 has-feedback">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" pattern="[a-zA-Z]+" required>
-                            </div>
-                        </div>
+
+                      <div class="form-group col-lg-6 col-md-5 has-feedback">
+                          <label for="firstName">First Name</label>
+                          <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName" pattern="[a-zA-Z]+" required>
+                      </div>
+
+
+                      <div class="form-group col-lg-6 col-md-5 has-feedback">
+                          <label for="lastName">Last Name</label>
+                          <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" pattern="[a-zA-Z]+" required>
+                      </div>
+
                     </div>
                     <div class="row">
-                        <div class="wrapper">
-                            <div class="form-group col-md-10">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1600 Holloway Ave, San Francisco, CA 94132" name="address" pattern="[a-zA-Z0-9]+" required>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="wrapper">
-                            <div class="form-group col-md-7">
-                                <label for="education">Are you a SFSU Student?</label>
-                                <select name="education" id="education" class="form-control">
-                                    <option value="">Choose One</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
-                            </div>
-                        </div>
+
+                      <div class="form-group col-md-12">
+                          <label for="address">Address</label>
+                          <input type="text" class="form-control" id="address" placeholder="1600 Holloway Ave, San Francisco, CA 94132" name="address" pattern="[a-zA-Z0-9]+" required>
+                      </div>
+
                     </div>
                     <br>
                     <div class="row">
-                        <div class="wrapper">
+
+                      <div class="form-group col-md-7">
+                          <label for="education">Are you a SFSU Student?</label>
+                          <select name="education" id="education" class="form-control">
+                              <option value="">Choose One</option>
+                              <option>Yes</option>
+                              <option>No</option>
+                          </select>
+                      </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+
                             <div class="form-group col-md-5">
                                 <label for="phone">Phone</label>
                                 <input type="text" class="form-control" id="phone" placeholder="4153246789" name="phone" pattern="[0-9]{10}" required>
-                                <p class="form-text text-muted">
-                                <h5>
-                                    Your phone number must contain 10 digits.
-                                </h5>
-                                </p>
+                                <h5 class="form-text text-muted">Your phone number must contain 10 digits.</h5>
+
                             </div>
-                        </div>
-                        <div class="wrapper">
-                            <div class="form-group col-md-7">
-                                <label for="email">E-mail</label>
-                                <input type="email" class="form-control" id="email" placeholder="user@mail.sfsu.edu" name="email">
-                            </div>
+
+
+                        <div class="form-group col-md-7">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="user@mail.sfsu.edu" name="email">
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="wrapper">
-                            <div class="form-group col-md-6 has-feedback">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" pattern="[a-zA-Z0-9]+" required>
-                            </div>
+
+                        <div class="form-group col-md-6 has-feedback">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" pattern="[a-zA-Z0-9]+" required>
                         </div>
+
                     </div>
                     <div class="row">
-                        <div class="wrapper">
+
                             <div class="form-group col-md-6">
                                 <label for="passwordConfirmation">Confirm Password</label>
                                 <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation">
                             </div>
-                        </div>
+
                     </div>
                     <br>
                     <div class="form-group">
-                        <div class="wrapper2">
+
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="terms" name="terms"> I agree to the <a href="/FormAux" target="_blank">terms and conditions.</a>
                             </div>
-                        </div>
+
                     </div>
                     <br>
                     <div class="row">
-                        <div class="wrapper">
+
                             <div class="form-group col-md-6">
                                 <div class="g-recaptcha" data-sitekey="6Lf6kLIZAAAAALC22EX4M4oBxDR-SZWhnxu6dm-A"></div>
 
                             </div>
-                        </div>
+
                     </div>
                     <br>
                     <br>
@@ -230,6 +226,56 @@ Customer Registration
         width:50%;
         margin:auto
     }
+    body {
+    background: linear-gradient(to bottom right, blanchedalmond, beige);
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    border: 12px solid cornsilk;
+}
+
+#map {
+    height: 100%;
+}
+
+#gmap_canvas {
+    height: 250px;
+    width: 250px;
+}
+
+.jumbotron {
+    background: bisque;
+    max-width: 750px;
+    border: 9px solid wheat;
+}
+
+.center-div {
+    margin: 0 auto;
+    width: 100%
+}
+
+.form-control {
+    font-size: 20px;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.wrapper .glyphicon {
+    position: absolute;
+    padding-right: 49px;
+    padding-top: 3px;
+}
+
+.wrapper2 {
+    margin: 0 auto;
+}
+
+.wrapper2 .glyphicon {
+    position: absolute;
+    padding-right: 250px;
+    padding-top: 3px;
+}
 </style>
 
 {% endblock %}

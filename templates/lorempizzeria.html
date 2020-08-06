@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
 {% block title %}
-Foodridise
+Fooridise
 {% endblock %}
 
 
@@ -61,7 +61,7 @@ Foodridise
 
 
             </div>
-            <form action="#" method="GET">
+            <form action="/delivery" method="POST">
               <input type="hidden" name="order" :value=JSON.stringify(cart)>
               <button type="submit" class="btn btn-primary" value="Submit">Proceed to Checkout</button>
             </form>

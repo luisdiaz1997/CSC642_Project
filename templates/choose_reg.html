@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+{% block title %}
+Choose Registration{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+<br>
+
+<div class="container-fluid p-3">
+    <div class="card text-center m-5">
+        <h3><div class="card-header">Register as a Customer</div></h3>
+        <div class="card-body">
+            <h6 class="card-title">Register as a customer to start ordering from your favorite restaurants!</h6>
+        </div>
+        <a class="btn btn-primary" href="/costumer_reg" role="button" style="background-color: #EB8921">
+            <h3 style="text-align: center">Register as a Customer</h3>
+        </a>
+        <br>
+    </div>
+    <br>
+</div>
+
+<br>
+
+<div class="container-fluid p-3">
+    <div class="card text-center m-5">
+        <h3><div class="card-header">Register as a Restaurant</div></h3>
+        <div class="card-body">
+            <h6 class="card-title">Register as a restaurant to start serving food to your favorite customers!</h6>
+        </div>
+        <a class="btn btn-primary" href="/step1" role="button" style="background-color: #EB8921">
+            <h3 style="text-align: center">Register as a Restaurant</h3>
+        </a>
+        <br>
+    </div>
+    <br>
+</div>
+
+{% endblock %}
+
+{% block style %}
+
+
+<style type="text/css">
+    .centerforms{
+        width:50%;
+        margin:auto
+    }
+</style>
+
+{% endblock %}

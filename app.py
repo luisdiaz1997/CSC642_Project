@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import json
 import scrape
 import pandas as pd
@@ -23,6 +23,27 @@ def home():
     data=json.loads(df_json))
 
 
+@app.route("/faq")
+def faq():
+    return render_template('faq.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/delivery', methods=["GET","POST"])
+def delivery():
+    if request.method == 'POST':
+        data = request.form
+        # data = json.loads(data['order'])
+        print(data)
+        print(type(data))
+        return render_template("delivery.html", orders = data['order'])
+
+
+    return render_template("delivery.html")
+
 #route for login
 @app.route("/login")
 def login():
@@ -37,24 +58,24 @@ def register():
     if userExists:
         redirect("/login")
 
-    return render_template("register.html", title = "Registration")
+    return render_template("choose_reg.html", title = "Registration")
 
 
-#route for registering ones restaurant
-#might need to append endpoint to register
-#TODO indicator on register if individual is making a account with a restaurant as well
-#TODO once someone enters resteraunt take them directly to menu route
-@app.route("/restaurant_reg")
-def resteraunt_reg():
-    return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
+#route for login
+@app.route("/costumer_reg")
+def costumer_reg():
+    return render_template("costumer_reg.html", title="Login")
 
-@app.route("/faq")
-def faq():
-    return render_template('faq.html')
 
-@app.route("/contact")
-def contact():
-    return render_template('contact.html')
+
+@app.route("/FormAux")
+def FormAux():
+    return render_template("FormAux.html")
+
+@app.route("/FormAux2")
+def FormAux2():
+    return render_template("FormAux2.html")
+
 
 
 
@@ -70,9 +91,14 @@ def lorempizzeria():
 def test():
     return render_template("register.html", title = "Place Order")
 
-#Restaurant step 1 to step 2
-@app.route("/step1", methods=["GET","POST"])
+
+@app.route("/step1")
 def step1():
+    return render_template("register.html")
+
+#Restaurant step 1 to step 2
+@app.route("/step2", methods=["GET","POST"])
+def step2():
     if request.method == 'POST':
         firstName = request.form.get("firstName")
         lastName = request.form.get("lastName")
@@ -96,8 +122,8 @@ def step1():
     return render_template("restaurant_reg.html")
 
 #Step 2 to 3
-@app.route("/step2", methods=["GET","POST"])
-def step2():
+@app.route("/step3", methods=["GET","POST"])
+def step3():
 
     if request.method == 'POST':
         city = request.form.get("city")
@@ -135,12 +161,12 @@ def step2():
 
 #step 3 to 4
 @app.route("/step4")
-def step3():
+def step4():
     return render_template("/reg_login/step4.html", title = "Place Order")
 
 #step 4 to 5
 @app.route("/step5")
-def step4():
+def step5():
     return render_template("/reg_login/step5.html", title = "Place Order")
 
 @app.route("/thanks", methods=["GET","POST"])
@@ -185,7 +211,8 @@ def thankyou():
             feedback = "EIN number is not valid!"
             return render_template("/reg_login/step5.html", feedback = feedback)
 
-    return render_template("thankyou.html", businessOwner = businessOwner, legalName = legalName)
+        return render_template("thankyou.html", businessOwner = businessOwner, legalName = legalName)
+    return render_template("thankyou.html")
 
 #Check for digits where they shouldnt be
 def numValidation(s):

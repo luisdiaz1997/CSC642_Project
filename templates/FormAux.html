@@ -1,0 +1,81 @@
+{% extends 'template.html' %}
+{% block title %}
+Terms and Conditions
+{% endblock %}
+
+{% block content %}
+{% include 'navbar_2.html' %}
+    <br>
+    <br>
+    <br>
+    <div class="container center-div">
+        <div class="container jumbotron jumbotron-fluid" id="main-container">
+            <div class="container center-div">
+                <h3>This Website is provided "as is" with all faults, and Fooridise express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you.</h3>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block style %}
+
+
+<style type="text/css">
+    .centerforms{
+        width:50%;
+        margin:auto
+    }
+    body {
+    background: linear-gradient(to bottom right, blanchedalmond, beige);
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    border: 12px solid cornsilk;
+}
+
+#map {
+    height: 100%;
+}
+
+#gmap_canvas {
+    height: 250px;
+    width: 250px;
+}
+
+.jumbotron {
+    background: bisque;
+    max-width: 750px;
+    border: 9px solid wheat;
+}
+
+.center-div {
+    margin: 0 auto;
+    width: 100%
+}
+
+.form-control {
+    font-size: 20px;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.wrapper .glyphicon {
+    position: absolute;
+    padding-right: 49px;
+    padding-top: 3px;
+}
+
+.wrapper2 {
+    margin: 0 auto;
+}
+
+.wrapper2 .glyphicon {
+    position: absolute;
+    padding-right: 250px;
+    padding-top: 3px;
+}
+</style>
+
+{% endblock %}

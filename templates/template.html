@@ -11,9 +11,7 @@
     <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
 
     {% block style %} {% endblock %}
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHlpPNqrRyyeho7w3t63GmM3EZzKF-e2k&callback=initMap">
-    </script>
+    
     <script src="{{url_for('static', filename='node_modules/jquery/dist/jquery.slim.min.js')}}"></script>
     <script src="{{url_for('static', filename='node_modules/@popperjs/core/dist/umd/popper.min.js')}}"></script>
     <script src="{{url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -24,5 +22,6 @@
   <body>
     {% block content %}{% endblock %}
     {%include 'footer.html' %}
+    {% block scripts %}{% endblock %}
   </body>
 </html>

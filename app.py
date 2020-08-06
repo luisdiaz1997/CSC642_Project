@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import json
 import scrape
 import pandas as pd
@@ -22,6 +22,27 @@ def home():
     return render_template("home.html", title="Foodridise",
     data=json.loads(df_json))
 
+
+@app.route("/faq")
+def faq():
+    return render_template('faq.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/delivery', methods=["GET","POST"])
+def delivery():
+    if request.method == 'POST':
+        data = request.form
+        # data = json.loads(data['order'])
+        print(data)
+        print(type(data))
+        return render_template("delivery.html", orders = data['order'])
+
+
+    return render_template("delivery.html")
 
 #route for login
 @app.route("/login")

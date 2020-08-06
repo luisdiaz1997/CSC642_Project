@@ -48,14 +48,6 @@ def register():
 def resteraunt_reg():
     return render_template("restaurant_reg.html", title = "Register you Resteraunt!")
 
-@app.route("/faq")
-def faq():
-    return render_template('faq.html')
-
-@app.route("/contact")
-def contact():
-    return render_template('contact.html')
-
 
 
 @app.route("/lorempizzeria")
@@ -71,7 +63,7 @@ def test():
     return render_template("register.html", title = "Place Order")
 
 #Restaurant step 1 to step 2
-@app.route("/step1", methods=["GET","POST"])
+@app.route("/step2", methods=["GET","POST"])
 def step1():
     if request.method == 'POST':
         firstName = request.form.get("firstName")
@@ -96,7 +88,7 @@ def step1():
     return render_template("restaurant_reg.html")
 
 #Step 2 to 3
-@app.route("/step2", methods=["GET","POST"])
+@app.route("/step3", methods=["GET","POST"])
 def step2():
 
     if request.method == 'POST':
